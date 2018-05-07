@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Index</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A neque quasi tenetur est animi praesentium explicabo et voluptatibus,
+    repudiandae aliquid beatae inventore ullam, adipisci voluptas. At aperiam nulla earum aspernatur? Quia quasi quis libero
+    inventore ipsum praesentium commodi obcaecati, impedit doloremque! Voluptatem eum placeat numquam voluptatum magnam?
+    Perspiciatis quae doloremque aperiam consequuntur est placeat, nobis, maiores, maxime officia id nesciunt? Laboriosam,
+    obcaecati iste, aspernatur cum accusantium quasi, a odio dolorem ab commodi magnam labore eaque eius possimus ducimus
+    consectetur. Accusantium expedita eos voluptatibus omnis impedit nisi illo earum veritatis libero. Nostrum possimus minus
+    aliquam eveniet. Animi quaerat deleniti ea quas adipisci sit nisi explicabo a, molestias nesciunt hic error eius optio
+    autem corporis sint eum qui? Deserunt unde officiis repudiandae? Aspernatur vero inventore, eum autem atque provident,
+    deserunt temporibus placeat at hic asperiores delectus, maxime doloribus minus vitae neque possimus repellat tempora
+    consequuntur. Iusto ipsum omnis corrupti aspernatur perferendis alias! Tempora aperiam beatae architecto nostrum corporis
+    suscipit iusto dolorem quibusdam aliquam culpa! Iste rerum suscipit repellendus voluptatibus culpa temporibus! Nesciunt
+    laudantium repellendus possimus provident ullam similique sequi vero ducimus id? Sint commodi nesciunt beatae blanditiis
+    totam vel hic suscipit in pariatur quod reprehenderit omnis nisi, eligendi dolor laboriosam ipsum id quidem sapiente
+    perferendis. Omnis, non voluptates assumenda modi vero consequatur. Eum dignissimos quos eaque ut perspiciatis soluta
+    consequuntur veniam maxime quisquam tenetur cum sit iste officia beatae, aperiam reiciendis exercitationem, amet, omnis
+    voluptatem. Quidem fugiat modi ea asperiores dolore mollitia? Laudantium odio ab praesentium. Et quaerat amet aliquam,
+    totam incidunt tempora temporibus soluta vero iure, placeat omnis aliquid, voluptatum sit excepturi tempore commodi debitis
+    quibusdam odio repellendus quidem dolores. Omnis. Voluptas ipsa, soluta dolorum beatae, corrupti id harum quod labore
+    deserunt eos minima nesciunt aliquid ab sit officiis quo officia aspernatur quidem tenetur necessitatibus. Necessitatibus
+    consectetur inventore harum natus suscipit.</p>
+  <a href="/otherPage">
+    <button class="btn btn-primary" id="contact">Contact</button>
+  </a>
+
+  <div class="userRow">
+    <!-- <h1>Test</h1>
+    <h2>Email Test</h2>
+    <h3>message test</h3> -->
+  </div>
+
+  <!-- jquery cdn -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <!-- complete bootstrap js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    // var minh = "hi, this is client";
+    // $("#contact").on("click", function(){
+    //   // $.get("/otherPage").then(function(req, res){
+    //   //   console.log(res);
+    //   // })
+    //   console.log("this is client");
+    //   //console.log(res);
+    // })
+
+    // for get method: r will be whatever server sends back
+
+    $.get("/getContact").then(function (r) {
+      //console.log(r);
+      display(r);
+    })
+
+    function display(r) {
+      for (var i = 0; i < r.length; i++) {
+        var newUser = $("<h1>" + r[i].name + "</h1><h2>" + r[i].email + "</h2><h3>" + r[i].message + "</h3>");
+        $(".userRow").append(newUser);
+      }
+    }
+  </script>
+</body>
+
+</html>
